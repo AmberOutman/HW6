@@ -31,7 +31,7 @@ function metersPerSecToMilesPerHour(s){
 }
 function loadCurrentWeather(cityName){
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + apiKey,
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + apiKey,
         method:"GET",
         success: function (data){
             localStorage.setItem(data.name,data.name);
@@ -52,7 +52,7 @@ function loadCurrentWeather(cityName){
 
 function load5DayForecast(cityName) {
     $.ajax({
-        url:"http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&APPID=" + apiKey,
+        url:"https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&APPID=" + apiKey,
         method:"GET",
         success:function(forecast){
             var today = moment().endOf("day");
@@ -82,7 +82,7 @@ function load5DayForecast(cityName) {
 
                     var $icon = $("<img>");
                     $icon.addClass("img-fluid");
-                    $icon.attr("src", "http://openweathermap.org/img/wn/" + item.weather[0].icon + ".png");
+                    $icon.attr("src", "https://openweathermap.org/img/wn/" + item.weather[0].icon + ".png");
                     $icon.attr("alt", item.weather[0].description);
                     $cardBody.append($icon);
 
